@@ -1,0 +1,167 @@
+\usepackage[greek,english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[left=20mm,top=3cm, right=20mm, bottom=3cm]{geometry}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage[none]{hyphenat}
+\usepackage{indentfirst}
+\usepackage[nottoc, notlot, notlof]{tocbibind}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{gfsartemisia}
+
+%tikzpicture
+\usepackage{tikz}
+\usepackage{scalerel}
+\usepackage{pict2e}
+\usepackage{tkz-euclide}
+\usetikzlibrary{calc}
+\usetikzlibrary{patterns,arrows.meta}
+\usetikzlibrary{shadows}
+\usetikzlibrary{external}
+
+%pgfplots
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{statistics}
+\usepgfplotslibrary{fillbetween}
+
+
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%  \fancyhead[LE,RO]{  \nouppercase{\rightmark}} 
+%  \fancyhead[LE]{ΠΑΝΑΓΙΩΤΑΚΗΣ ΑΛΕΞΑΝΔΡΟΣ} 
+%  \fancyhead[RE]{Μαθηματικά κατεύθυνσης γ' Λυκείου}
+%  \fancyhead[LO]{\if@mainmatter\chaptername\ \thechapter~~\fi}
+%  \fancyhead[RO]{\itshape\nouppercase  \leftmark}
+%  \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\renewcommand{\footrulewidth}{1pt}
+%\renewcommand{\headrulewidth}{0pt}
+%\setlength{\headheight}{15pt}
+%\cfoot{\medskip -\ \thepage\ -}
+
+
+\newtcolorbox{Definition}[1]{colback=blue!5!white,
+  colframe=blue!30,boxrule=1pt,enhanced,fonttitle=\bfseries,
+  attach boxed title to top left=
+  {xshift=4mm,yshift=-2mm},
+  boxed title style={size=small,colback=blue!20},
+  title={{\color{black}Ορισμός: #1}}}
+  
+%--------------------------------------------------
+\newtcolorbox{Protasi}[1]{colback=blue!5!white,
+  colframe=blue!30,boxrule=1pt,enhanced,fonttitle=\bfseries,
+  attach boxed title to top left=
+  {xshift=4mm,yshift=-2mm},
+  boxed title style={size=small,colback=blue!20},
+  title={{\color{black}Πρόταση #1}}}
+
+
+%--------------------------------------------------
+\newenvironment{Askisi}
+    {
+    \begin{tcolorbox}[enhanced jigsaw, colback=gray!10, boxrule=1pt, segmentation style={solid,black,line width=2pt}] %fontupper=\bfseries,
+    \noindent\textbf{{\color{blue}\underline{\Large\thechapter\large.\showmycounter}}}\ 
+    }
+    { 
+    \end{tcolorbox}
+    }
+%--------------------------------------------------
+\newenvironment{Solution}
+    {
+    \begin{center} 
+    \textbf{Λύση}
+    \end{center}
+    }
+    { 
+    }
+%--------------------------------------------------
+%   True-False statements
+%--------------------------------------------------
+\newcommand*{\QuestionNumber}{\myNumber{\showmycounter.} }
+\newcommand*{\ResetQuestionNumber}{\setcounter{mycounter}{0}}
+
+\newcommand{\TrueFalseHeader}{
+    \noindent
+    \begin{minipage}{0.86\textwidth}
+    {\color{white} .}
+    \end{minipage}
+    \begin{minipage}{0.13\textwidth}
+    \hspace{0.4cm}
+    S
+    \hspace{0.3cm}
+    L
+    \end{minipage}\\
+}
+
+\newenvironment{TrueFalse}
+{
+    \noindent\begin{minipage}{0.86\textwidth} \QuestionNumber
+}
+{
+    \end{minipage}
+    \begin{minipage}{0.13\textwidth}
+    \hspace{0.2cm}
+    \begin{tabular}{|c|} \hline \ \ \ \\ \hline \end{tabular}
+    %\hspace{0.1cm}
+    \begin{tabular}{|c|} \hline \ \ \ \\ \hline \end{tabular}
+    \end{minipage}\\
+}
+
+
+\newcommand{\en}{\selectlanguage{english}}
+\newcommand{\gr}{\selectlanguage{greek}}
+
+\newcommand*{\MissingInfo}{\begin{center}
+\begin{tcolorbox}[width=0.4\textwidth,boxrule=02pt,colback=red!,arc=2pt,auto outer arc,left=0pt,right=0pt,boxsep=5pt]
+\begin{center}
+\Large{\color{white} \textbf{Λείπει κείμενο!}}
+\end{center}
+\end{tcolorbox}
+\end{center}
+}
+
+\newcommand*{\myTitle}[1]{\begin{tcolorbox}[enhanced jigsaw, fontupper=\bfseries, colback=gray!10, boxrule=2pt, segmentation style={solid,black,line width=2pt}]
+    \begin{center}\begin{large}\textbf{#1}\end{large}\end{center}
+  \end{tcolorbox}}
+%\newcommand*{\myTitle}[1]{\noindent\fbox{\colorbox{blue!30}{\parbox{.95\linewidth}{\medskip\centerline{\textbf{#1}}}}}}
+\newcommand*{\mySubtitle}[1]{\noindent\colorbox{blue!10}{\parbox{.985\linewidth}{\medskip\textbf{ #1}}}}%\Large{\showmycounter}.} \ #1}}}
+
+\newcommand*{\myExercise}{
+\noindent\medskip\textbf{\Large{\color{blue}\thesubsection.\showmycounter.}}\ }
+
+\newcommand*{\Exercise}[1]{\noindent\colorbox{gray!15}{\parbox{.985\linewidth}{\myExercise #1}}}
+
+\newcommand*{\myLine}{ \vspace{2pt} \noindent \line(1,0){0.99\textwidth}}%\\[1mm]}
+
+\newcommand*{\mySolution}{\begin{center} \textbf{Λύση} \end{center}}
+
+\newcommand*{\myNumber}[1]{\noindent\textbf{\color{red}#1}}
+\newcommand*{\myNo}[1]{\hfill{\color{blue} (#1)}}
+\newcommand*{\mygNo}[1]{{\color{black} (#1)}}
+\newcommand*{\mybullet}{\noindent\textbullet\hspace{.3cm}}
+
+
+\newcommand{\uparrowtail}{\mathbin{\rotatebox[origin=c]{90}{$\rightarrowtail$}}}
+\newcommand{\downarrowtail}{\mathbin{\rotatebox[origin=c]{-90}{$\rightarrowtail$}}}
+\newcommand{\syn}{\text{συν}}
+\newcommand{\hm}{\text{ημ}}
+\newcommand{\ef}{\text{εφ}}
+\newcommand{\sef}{\text{σφ}}
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}   
+
+\newcounter{mycounter}
+\newcommand\showmycounter{\stepcounter{mycounter}\themycounter}
+
+%\parindent 1em
+%\setlength{\parindent}{2em}
+\setlength{\parskip}{0.7em}
+\setlength{\itemsep}{0em}
+\renewcommand{\baselinestretch}{1.2}
+
+
